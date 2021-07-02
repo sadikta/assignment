@@ -1,0 +1,56 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div style=" padding:5px">
+                <a th:href="@{/list}">Home</a>
+
+                <a th:href="@{/productlist}">Product</a>
+                <a th:href="@{/carts}">Cart</a>
+            </div><br>
+            <h3 style="text-align:center">Add User</h3><br>
+
+            <form th:action="@{/add}" th:object="${user}" method="post">
+                <div class="form-row">
+
+                    <div class="col-md-6 form-group">
+                        <label>User Name:</label>
+                        <input type="text" class="form-control" th:field="*{name}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" th:field="*{email}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label> Phone:</label>
+                        <input type="text" class="form-control" th:field="*{phone}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label> City Address:</label>
+                        <input type="text" class="form-control" th:field="*{city_address}">
+                    </div>
+
+
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Save</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</body>
+</html>

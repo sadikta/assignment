@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap-select.css">
+    <link href="css/jquery.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+</head>
+<body>
+<div  style="width:280px;height:340px; border-style:solid;margin:50px;margin-left:400px;padding-left:30px;padding-right:20px">
+<h3 style="text-align:center"> Cart</h3><br>
+
+
+<form th:action="@{/cartsave}" th:object="${getcart}" method="post">
+    <div>
+        <select class="selectpicker"   th:each="users : ${getusers}" th:field="*{cusers}" >
+
+            <optgroup label="Picnic">
+
+                <option th:text="${users.name}"></option>
+
+                <option>Ketchup</option>
+            </optgroup>
+        </select>
+
+    </div>
+    <br>
+    <div>
+        <input type="checkbox"  name="vehicle1" value="Bike" th:field="*{cstatus}" >
+        <label> On Cart</label>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" th:field="*{cstatus}">
+        <label> Purchased </label>
+    </div>
+    <br>
+    <div>
+
+        <select class="selectpicker" multiple th:each="products : ${getproduct}" th:field="*{cproduct}">
+
+            <optgroup label="Products" data-max-options="5">
+
+                <option th:text="${products.pname}" ></option>
+
+            </optgroup>
+        </select>
+    </div><br>
+
+    <button type="button"  >submit</button>
+</form>
+
+</div>
+
+</body>
+
+</html>
